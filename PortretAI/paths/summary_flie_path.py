@@ -1,0 +1,1 @@
+summary_file_path = '/workspaces/codespaces-blank/portret_ai/PortretAI/static/summary.txt'

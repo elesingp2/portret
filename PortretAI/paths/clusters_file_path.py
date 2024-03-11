@@ -1,0 +1,1 @@
+clusters_path = '/workspaces/codespaces-blank/portret_ai/PortretAI/static/clusters.txt'

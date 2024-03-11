@@ -1,0 +1,1 @@
+compare_clusters_path = 'portret_ai/PortretAI/static/compare_clusters.txt'
