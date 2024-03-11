@@ -6,7 +6,7 @@ from preprocess.preprocess_v1 import preprocess_clusterization
 # Векторизация
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import normalize
-from vectorizers.w2v_vectorizer import w2v_vectorizer
+
 # Кластеризация
 from sklearn.cluster import KMeans
 from embeddings.embeddings_openai import open_AI_embeddings

@@ -14,7 +14,7 @@ from flask_bootstrap import Bootstrap
 
 # Модули приложения
 from fetchers.youtube_fetcher import YouTubeCommentsFetcher
-from video_summarization.video_summarization import YoutubeVideoSummaryDescriptor
+from video_summarization.video_summarization_gpt import YoutubeVideoSummaryDescriptor
 from keys.fetcher_keys import YOUTUBE_DEVELOPER_KEY
 from keys.llm_keys import OPENAI_API_KEY
 from prompt_library.system_prompt_for_summarization import system_text_clustering

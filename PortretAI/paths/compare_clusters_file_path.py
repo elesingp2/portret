@@ -1,1 +1,1 @@
-compare_clusters_path = 'portret_ai/PortretAI/static/compare_clusters.txt'
+compare_clusters_path = '/workspaces/portret/PortretAI/static/compare_clusters.txt'

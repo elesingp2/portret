@@ -1,1 +1,1 @@
-clusters_path = '/workspaces/codespaces-blank/portret_ai/PortretAI/static/clusters.txt'
+clusters_path = '/workspaces/portret/PortretAI/static/clusters.txt'
