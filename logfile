@@ -1,77 +1,51 @@
-2024-03-11 19:33:46.442 UTC [10284] LOG:  starting PostgreSQL 16.2 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 12.3.0-5) 12.3.0, 64-bit
-2024-03-11 19:33:46.443 UTC [10284] LOG:  listening on IPv6 address "::1", port 5432
-2024-03-11 19:33:46.443 UTC [10284] LOG:  listening on IPv4 address "127.0.0.1", port 5432
-2024-03-11 19:33:46.459 UTC [10284] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
-2024-03-11 19:33:46.492 UTC [10290] LOG:  database system was shut down at 2024-03-11 19:33:36 UTC
-2024-03-11 19:33:46.513 UTC [10284] LOG:  database system is ready to accept connections
-2024-03-11 19:38:46.586 UTC [10288] LOG:  checkpoint starting: time
-2024-03-11 19:40:21.171 UTC [10288] LOG:  checkpoint complete: wrote 935 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=93.227 s, sync=1.275 s, total=94.585 s; sync files=310, longest=0.015 s, average=0.005 s; distance=4286 kB, estimate=4286 kB; lsn=0/18AFF70, redo lsn=0/18AFF38
-2024-03-11 20:29:43.297 UTC [5308] LOG:  starting PostgreSQL 16.2 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 12.3.0-5) 12.3.0, 64-bit
-2024-03-11 20:29:43.301 UTC [5308] LOG:  listening on IPv6 address "::1", port 5432
-2024-03-11 20:29:43.301 UTC [5308] LOG:  listening on IPv4 address "127.0.0.1", port 5432
-2024-03-11 20:29:43.323 UTC [5308] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
-2024-03-11 20:29:43.362 UTC [5328] LOG:  database system was interrupted; last known up at 2024-03-11 19:40:21 UTC
-2024-03-11 20:29:48.616 UTC [5328] LOG:  database system was not properly shut down; automatic recovery in progress
-2024-03-11 20:29:48.638 UTC [5328] LOG:  redo starts at 0/18AFF38
-2024-03-11 20:29:48.642 UTC [5328] LOG:  invalid record length at 0/18B0038: expected at least 24, got 0
-2024-03-11 20:29:48.642 UTC [5328] LOG:  redo done at 0/18AFFE8 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
-2024-03-11 20:29:48.689 UTC [5326] LOG:  checkpoint starting: end-of-recovery immediate wait
-2024-03-11 20:29:48.813 UTC [5326] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.031 s, sync=0.016 s, total=0.142 s; sync files=2, longest=0.009 s, average=0.008 s; distance=0 kB, estimate=0 kB; lsn=0/18B0038, redo lsn=0/18B0038
-2024-03-11 20:29:48.833 UTC [5308] LOG:  database system is ready to accept connections
-2024-03-11 20:30:10.997 UTC [5429] ERROR:  multiple primary keys for table "widgets" are not allowed at character 74
-2024-03-11 20:30:10.997 UTC [5429] STATEMENT:  CREATE TABLE widgets (
-	    user_id SERIAL PRIMARY KEY,
-	    widget_id INT PRIMARY KEY,
-	    widget_name VARCHAR(255) NOT NULL,
-	    first_report_created_at TIMESTAMP,
-	    reports_created_at_json JSONB,
-	    new_report_created_at TIMESTAMP,
-	    report_count INT
+2024-03-14 08:32:06.602 UTC [5062] LOG:  starting PostgreSQL 16.2 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 12.3.0-5) 12.3.0, 64-bit
+2024-03-14 08:32:06.603 UTC [5062] LOG:  listening on IPv6 address "::1", port 5432
+2024-03-14 08:32:06.603 UTC [5062] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-03-14 08:32:06.620 UTC [5062] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-03-14 08:32:06.645 UTC [5065] LOG:  database system was shut down at 2024-03-14 08:32:00 UTC
+2024-03-14 08:32:06.661 UTC [5062] LOG:  database system is ready to accept connections
+2024-03-14 08:32:16.258 UTC [5160] FATAL:  database "db" does not exist
+2024-03-14 08:32:49.920 UTC [5323] ERROR:  relation "widgets" does not exist
+2024-03-14 08:32:49.920 UTC [5323] STATEMENT:  CREATE TABLE reports (
+	    widget_id INT REFERENCES widgets(widget_id),
+	    reports_id SERIAL PRIMARY KEY,
+	    create_dttm TIMESTAMP NOT NULL,
+	    filepath JSON,
+	    period_flag BOOLEAN,
+	    report_text JSON
 	);
-2024-03-11 20:34:48.904 UTC [5326] LOG:  checkpoint starting: time
-2024-03-11 20:34:54.218 UTC [5326] LOG:  checkpoint complete: wrote 51 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=5.028 s, sync=0.194 s, total=5.314 s; sync files=43, longest=0.023 s, average=0.005 s; distance=170 kB, estimate=170 kB; lsn=0/18DA8C0, redo lsn=0/18DA888
-2024-03-11 20:37:52.067 UTC [9181] ERROR:  relation "widgets" does not exist at character 13
-2024-03-11 20:37:52.067 UTC [9181] STATEMENT:  INSERT INTO widgets (user_id, widget_id, widget_name, first_report_created_at, reports_created_at_json, new_report_created_at, report_count) VALUES (1, 123, 'Widget 1', '2024-03-11 20:34:00', '{"reports": [1, 2, 3]}', '2024-03-11 20:34:00', 3);
-2024-03-11 20:39:48.317 UTC [5326] LOG:  checkpoint starting: time
-2024-03-11 20:39:49.568 UTC [5326] LOG:  checkpoint complete: wrote 12 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.119 s, sync=0.052 s, total=1.252 s; sync files=8, longest=0.020 s, average=0.007 s; distance=10 kB, estimate=154 kB; lsn=0/18DD478, redo lsn=0/18DD440
-2024-03-11 20:44:48.650 UTC [5326] LOG:  checkpoint starting: time
-2024-03-11 20:44:49.085 UTC [5326] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.316 s, sync=0.032 s, total=0.435 s; sync files=4, longest=0.017 s, average=0.008 s; distance=8 kB, estimate=139 kB; lsn=0/18DF750, redo lsn=0/18DF718
-2024-03-11 20:49:39.416 UTC [14041] ERROR:  duplicate key value violates unique constraint "reports_pkey"
-2024-03-11 20:49:39.416 UTC [14041] DETAIL:  Key (user_id)=(45) already exists.
-2024-03-11 20:49:39.416 UTC [14041] STATEMENT:  INSERT INTO reports (user_id, widget_id, widget_name, first_report_created_at, reports_created_at_json, new_report_created_at, report_count) VALUES (45, 12453, 'Widget 1', '2024-03-11 20:34:00', '{"reports": [1, 2, 3]}', '2024-03-11 20:34:00', 3);
-2024-03-11 20:49:48.177 UTC [5326] LOG:  checkpoint starting: time
-2024-03-11 20:49:48.616 UTC [5326] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.317 s, sync=0.034 s, total=0.440 s; sync files=4, longest=0.018 s, average=0.009 s; distance=6 kB, estimate=126 kB; lsn=0/18E1110, redo lsn=0/18E10D8
-2024-03-11 20:54:48.713 UTC [5326] LOG:  checkpoint starting: time
-2024-03-11 20:54:49.150 UTC [5326] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.317 s, sync=0.033 s, total=0.437 s; sync files=4, longest=0.018 s, average=0.009 s; distance=7 kB, estimate=114 kB; lsn=0/18E2E50, redo lsn=0/18E2E18
-2024-03-11 21:12:27.907 UTC [23393] ERROR:  duplicate key value violates unique constraint "reports_pkey"
-2024-03-11 21:12:27.907 UTC [23393] DETAIL:  Key (user_id)=(5544) already exists.
-2024-03-11 21:12:27.907 UTC [23393] STATEMENT:  INSERT INTO reports (user_id, widget_id, widget_name, first_report_created_at, reports_created_at_json, new_report_created_at, report_count) VALUES (5544, 4594456, 'Widget 2', '2024-03-10 15:00:00', '{"reports": [4, 5]}', '2024-03-10 15:30:00', 2);
-2024-03-11 21:12:36.933 UTC [23505] ERROR:  duplicate key value violates unique constraint "reports_pkey"
-2024-03-11 21:12:36.933 UTC [23505] DETAIL:  Key (user_id)=(54444) already exists.
-2024-03-11 21:12:36.933 UTC [23505] STATEMENT:  INSERT INTO reports (user_id, widget_id, widget_name, first_report_created_at, reports_created_at_json, new_report_created_at, report_count) VALUES (54444, 4592456, 'Widget 2', '2024-03-10 15:00:00', '{"reports": [4, 5]}', '2024-03-10 15:30:00', 2);
-2024-03-11 21:14:48.522 UTC [5326] LOG:  checkpoint starting: time
-2024-03-11 21:14:48.961 UTC [5326] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.317 s, sync=0.035 s, total=0.440 s; sync files=4, longest=0.018 s, average=0.009 s; distance=8 kB, estimate=103 kB; lsn=0/18E4EC0, redo lsn=0/18E4E88
-2024-03-11 21:17:43.823 UTC [25569] ERROR:  duplicate key value violates unique constraint "reports_pkey"
-2024-03-11 21:17:43.823 UTC [25569] DETAIL:  Key (user_id)=(55494) already exists.
-2024-03-11 21:17:43.823 UTC [25569] STATEMENT:  INSERT INTO reports (user_id, widget_id, widget_name, first_report_created_at, reports_created_at_json, new_report_created_at, report_count) VALUES (55494, 45940456, 'Widget 2', '2024-03-10 15:00:00', '{"reports": [4, 5]}', '2024-03-10 15:30:00', 2);
-2024-03-11 21:19:49.061 UTC [5326] LOG:  checkpoint starting: time
-2024-03-11 21:19:49.288 UTC [5326] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.116 s, sync=0.025 s, total=0.228 s; sync files=2, longest=0.017 s, average=0.013 s; distance=6 kB, estimate=94 kB; lsn=0/18E6730, redo lsn=0/18E66F8
-2024-03-11 21:24:28.565 UTC [28885] ERROR:  duplicate key value violates unique constraint "reports_pkey"
-2024-03-11 21:24:28.565 UTC [28885] DETAIL:  Key (user_id)=(549444) already exists.
-2024-03-11 21:24:28.565 UTC [28885] STATEMENT:  INSERT INTO reports (user_id, widget_id, widget_name, first_report_created_at, reports_created_at_json, new_report_created_at, report_count) VALUES (549444, 45920456, 'Widget 2', '2024-03-10 15:00:00', '{"reports": [4, 5]}', '2024-03-10 15:30:00', 2);
-2024-03-11 21:24:49.377 UTC [5326] LOG:  checkpoint starting: time
-2024-03-11 21:24:49.814 UTC [5326] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.316 s, sync=0.034 s, total=0.437 s; sync files=4, longest=0.019 s, average=0.009 s; distance=8 kB, estimate=85 kB; lsn=0/18E87C0, redo lsn=0/18E8788
-2024-03-11 21:29:49.913 UTC [5326] LOG:  checkpoint starting: time
-2024-03-11 21:29:50.346 UTC [5326] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.316 s, sync=0.033 s, total=0.434 s; sync files=4, longest=0.017 s, average=0.009 s; distance=8 kB, estimate=77 kB; lsn=0/18EA8E8, redo lsn=0/18EA8B0
-2024-03-11 21:30:45.965 UTC [31681] ERROR:  integer out of range
-2024-03-11 21:30:45.965 UTC [31681] STATEMENT:  INSERT INTO reports (user_id, widget_id, widget_name, first_report_created_at, reports_created_at_json, new_report_created_at, report_count) VALUES (55400094, 45940000456, 'Widget 2', '2024-03-10 15:00:00', '{"reports": [4, 5]}', '2024-03-10 15:30:00', 2);
-2024-03-11 21:33:10.657 UTC [32666] ERROR:  duplicate key value violates unique constraint "reports_pkey"
-2024-03-11 21:33:10.657 UTC [32666] DETAIL:  Key (user_id)=(5584) already exists.
-2024-03-11 21:33:10.657 UTC [32666] STATEMENT:  INSERT INTO reports (user_id, widget_id, widget_name, first_report_created_at, reports_created_at_json, new_report_created_at, report_count) VALUES (5584, 800456, 'Widget 2', '2024-03-10 15:00:00', '{"reports": [4, 5]}', '2024-03-10 15:30:00', 2);
-2024-03-11 21:33:17.753 UTC [32757] ERROR:  duplicate key value violates unique constraint "reports_pkey"
-2024-03-11 21:33:17.753 UTC [32757] DETAIL:  Key (user_id)=(5584) already exists.
-2024-03-11 21:33:17.753 UTC [32757] STATEMENT:  INSERT INTO reports (user_id, widget_id, widget_name, first_report_created_at, reports_created_at_json, new_report_created_at, report_count) VALUES (5584, 800456, 'Widget 2', '2024-03-10 15:00:00', '{"reports": [4, 5]}', '2024-03-10 15:30:00', 2);
-2024-03-11 21:34:49.445 UTC [5326] LOG:  checkpoint starting: time
-2024-03-11 21:34:49.885 UTC [5326] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.316 s, sync=0.032 s, total=0.441 s; sync files=4, longest=0.017 s, average=0.008 s; distance=9 kB, estimate=70 kB; lsn=0/18ECE00, redo lsn=0/18ECDC8
-2024-03-11 21:39:49.981 UTC [5326] LOG:  checkpoint starting: time
-2024-03-11 21:39:50.421 UTC [5326] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.317 s, sync=0.033 s, total=0.440 s; sync files=4, longest=0.017 s, average=0.009 s; distance=9 kB, estimate=64 kB; lsn=0/18EF378, redo lsn=0/18EF340
+2024-03-14 08:37:06.724 UTC [5063] LOG:  checkpoint starting: time
+2024-03-14 08:38:43.037 UTC [5063] LOG:  checkpoint complete: wrote 955 buffers (5.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=95.223 s, sync=1.027 s, total=96.313 s; sync files=336, longest=0.014 s, average=0.004 s; distance=4407 kB, estimate=4407 kB; lsn=0/18CE458, redo lsn=0/18CE420
+2024-03-14 09:01:50.373 UTC [17077] ERROR:  column "id" does not exist at character 182
+2024-03-14 09:01:50.373 UTC [17077] STATEMENT:  INSERT INTO "widgets" ("user_id", "widget_name", "key_words", "sources_id", "schedule_hour") VALUES (1, 'Weather Widget', ARRAY['weather','forecast'], ARRAY['1','2'], 14) RETURNING "id";
+2024-03-14 09:03:04.158 UTC [17566] ERROR:  column "id" does not exist at character 182
+2024-03-14 09:03:04.158 UTC [17566] STATEMENT:  INSERT INTO "widgets" ("user_id", "widget_name", "key_words", "sources_id", "schedule_hour") VALUES (1, 'Weather Widget', ARRAY['weather','forecast'], ARRAY['1','2'], 14) RETURNING "id";
+2024-03-14 09:03:25.877 UTC [17748] ERROR:  column "id" does not exist at character 63
+2024-03-14 09:03:25.877 UTC [17748] STATEMENT:  INSERT INTO "users" ("username") VALUES ('johndoe') RETURNING "id";
+2024-03-14 09:09:46.742 UTC [20257] ERROR:  column "id" does not exist at character 63
+2024-03-14 09:09:46.742 UTC [20257] STATEMENT:  INSERT INTO "users" ("username") VALUES ('johndoe') RETURNING "id";
+2024-03-14 09:12:06.658 UTC [5063] LOG:  checkpoint starting: time
+2024-03-14 09:12:07.381 UTC [5063] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.617 s, sync=0.034 s, total=0.724 s; sync files=6, longest=0.014 s, average=0.006 s; distance=0 kB, estimate=3966 kB; lsn=0/18CE7D8, redo lsn=0/18CE7A0
+2024-03-14 09:13:19.950 UTC [21716] ERROR:  column "id" does not exist at character 63
+2024-03-14 09:13:19.950 UTC [21716] STATEMENT:  INSERT INTO "users" ("username") VALUES ('johndoe') RETURNING "id";
+2024-03-14 09:17:06.476 UTC [5063] LOG:  checkpoint starting: time
+2024-03-14 09:17:06.875 UTC [5063] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.311 s, sync=0.026 s, total=0.399 s; sync files=4, longest=0.015 s, average=0.007 s; distance=0 kB, estimate=3570 kB; lsn=0/18CEB00, redo lsn=0/18CEAC8
+2024-03-14 09:21:32.232 UTC [24953] ERROR:  column "user_id" does not exist at character 210
+2024-03-14 09:21:32.232 UTC [24953] STATEMENT:  INSERT INTO "reports" ("widget_id", "create_dttm", "filepath", "period_flag", "report_text") VALUES (1, '2024-01-01 00:00:00', '{"path": "path/to/file"}', true, '{"content": "Report content here"}') RETURNING "user_id";
+2024-03-14 09:21:45.081 UTC [25070] ERROR:  column "user_id" does not exist at character 210
+2024-03-14 09:21:45.081 UTC [25070] STATEMENT:  INSERT INTO "reports" ("widget_id", "create_dttm", "filepath", "period_flag", "report_text") VALUES (1, '2024-01-01 00:00:00', '{"path": "path/to/file"}', true, '{"content": "Report content here"}') RETURNING "user_id";
+2024-03-14 09:22:06.972 UTC [5063] LOG:  checkpoint starting: time
+2024-03-14 09:22:08.194 UTC [5063] LOG:  checkpoint complete: wrote 12 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.113 s, sync=0.048 s, total=1.222 s; sync files=11, longest=0.014 s, average=0.005 s; distance=10 kB, estimate=3214 kB; lsn=0/18D14D0, redo lsn=0/18D1498
+2024-03-14 09:27:06.292 UTC [5063] LOG:  checkpoint starting: time
+2024-03-14 09:27:06.693 UTC [5063] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.312 s, sync=0.027 s, total=0.402 s; sync files=4, longest=0.012 s, average=0.007 s; distance=1 kB, estimate=2892 kB; lsn=0/18D1B48, redo lsn=0/18D1B10
+2024-03-14 09:32:06.793 UTC [5063] LOG:  checkpoint starting: time
+2024-03-14 09:32:09.447 UTC [5063] LOG:  checkpoint complete: wrote 26 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.525 s, sync=0.073 s, total=2.655 s; sync files=22, longest=0.013 s, average=0.004 s; distance=6 kB, estimate=2604 kB; lsn=0/18D34C0, redo lsn=0/18D3488
+2024-03-14 09:37:06.543 UTC [5063] LOG:  checkpoint starting: time
+2024-03-14 09:37:08.169 UTC [5063] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.513 s, sync=0.058 s, total=1.626 s; sync files=16, longest=0.013 s, average=0.004 s; distance=5 kB, estimate=2344 kB; lsn=0/18D49C0, redo lsn=0/18D4988
+2024-03-14 09:40:29.320 UTC [32351] ERROR:  update or delete on table "users" violates foreign key constraint "widgets_user_id_fkey" on table "widgets"
+2024-03-14 09:40:29.320 UTC [32351] DETAIL:  Key (user_id)=(1) is still referenced from table "widgets".
+2024-03-14 09:40:29.320 UTC [32351] STATEMENT:  DELETE FROM "users" 
+2024-03-14 09:42:06.241 UTC [5063] LOG:  checkpoint starting: time
+2024-03-14 09:42:06.744 UTC [5063] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.413 s, sync=0.027 s, total=0.504 s; sync files=5, longest=0.013 s, average=0.006 s; distance=3 kB, estimate=2110 kB; lsn=0/18D57E8, redo lsn=0/18D57B0
+2024-03-14 09:47:06.834 UTC [5063] LOG:  checkpoint starting: time
+2024-03-14 09:47:08.469 UTC [5063] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.520 s, sync=0.057 s, total=1.635 s; sync files=16, longest=0.014 s, average=0.004 s; distance=6 kB, estimate=1899 kB; lsn=0/18D7140, redo lsn=0/18D7108

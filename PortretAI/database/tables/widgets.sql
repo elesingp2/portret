@@ -1,9 +1,9 @@
-CREATE TABLE reports (
-    user_id SERIAL PRIMARY KEY,
-    widget_id INT UNIQUE NOT NULL,
+-- Создание таблицы виджетов
+CREATE TABLE widgets (
+    user_id INT REFERENCES users(user_id),
+    widget_id SERIAL PRIMARY KEY,
     widget_name VARCHAR(255) NOT NULL,
-    first_report_created_at TIMESTAMP,
-    reports_created_at_json JSONB,
-    new_report_created_at TIMESTAMP,
-    report_count INT
+    key_words TEXT[], 
+    sources_id TEXT[],
+    schedule_hour INT 
 );
