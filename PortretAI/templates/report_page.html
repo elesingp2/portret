@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ report.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='report_page.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <!-- Логотип -->
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Portret">
+            </div>
+            
+            <!-- Навигационные кнопки -->
+            <div class="navigation-buttons">
+                <button class="nav-button">Перейти на мониторинг</button>
+                <button class="nav-button">Выбрать дату</button>
+            </div>
+
+            <div class="trend-info">
+                <div class="trend-title">{{ report.title }}</div>
+                <div class="trend-stats">
+                    <span class="trend-number">{{ report.trend_number }} тренд</span>
+                    <span class="trend-date">{{ report.date }}</span>
+                </div>
+            </div>
+
+            <!-- Ссылка на меню -->
+            <div class="menu-link">
+                <a href="#">> Меню</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <section class="report-content">
+            <h2>Добавленный отчет:</h2>
+                <h1>{{ report.text }}</h1>
+            </section>
+            <section class="comment-examples">
+                {% for comment in report.comments %}
+                <p>{{ comment }}</p>
+                {% endfor %}
+            </section>
+        </main>
+    </div>
+</body>
+</html>

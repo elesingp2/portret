@@ -34,7 +34,7 @@ def fetch_and_combine_comments_manually(video_ids, api_key):
 
 if __name__ == "__main__":
     api_key = YOUTUBE_DEVELOPER_KEY
-    video_ids = ["aqcfE9xPZew", "LjBbzOiDp7k", "XsEhEm5l7Jk"]  # Пример списка video_id
+    video_ids = ["Hq5ReA2DQUQ"]  # Пример списка video_id
     combined_comments_df = fetch_and_combine_comments_manually(video_ids, api_key)
 
     if not combined_comments_df.empty:

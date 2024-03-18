@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчеты</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home_page.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Portret">
+            </div>
+            <div class="add-report">
+                <button>Добавить виджет</button>
+            </div>
+            <ul class="report-list">
+                {% for report in reports %}
+                <li class="report">
+                    <a href="{{ url_for('report_page', report_id=report.id) }}" class="report-link">
+                        <span>{{ report.title }}</span>
+                        <span>{{ report.length }}</span>
+                        <span>{{ report.date }}</span>
+                    </a>
+                    <button class="delete-report">X</button>
+                </li>
+                {% endfor %}
+            </ul>
+        </aside>
+        <main class="main-content">
+            <h2>Добавленные отчеты:</h2>
+            <div class="reports">
+                {% for report in reports %}
+                <p>{{ report.title }} | {{ report.length }} | {{ report.date }}</p>
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+</body>
+</html>

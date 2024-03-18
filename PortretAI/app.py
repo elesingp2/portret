@@ -3,21 +3,45 @@ import sass
 
 app = Flask(__name__)
 
+# Пример данных для главной страницы
+reports = [
+    {"id": 1, "title": "член", "length": "3000 см", "date": "21.02.2024"}
+]
+
+# Пример данных для страницы отчета
+report_data = {
+    'title': 'Кафе "Уткин Двор"',
+    'trend_number': 1,
+    'date': '20.02.2024',
+    'text': 'Тебе представлены суммарзированные кластеры с комментариями в социальной сети. Каждый кластер - отдельный паттерн.  Тебе нужно соединить всю информацию в максимально информативный отчет, Используй только ту информацию, что есть в тексте без вступления и подкрепляй примерами: Тебе представлены суммарзированные кластеры с комментариями в социальной сети. Каждый кластер - отдельный паттерн.  Тебе нужно соединить всю информацию в максимально информативный отчет, Используй только ту информацию, что есть в тексте без вступления и подкрепляй примерами: Тебе представлены суммарзированные кластеры с комментариями в социальной сети. Каждый кластер - отдельный паттерн.  Тебе нужно соединить всю информацию в максимально информативный отчет, Используй только ту информацию, что есть в тексте без вступления и подкрепляй примерами: Тебе представлены суммарзированные кластеры с комментариями в социальной сети. Каждый кластер - отдельный паттерн.  Тебе нужно соединить всю информацию в максимально информативный отчет, Используй только ту информацию, что есть в тексте без вступления и подкрепляй примерами: Тебе представлены суммарзированные кластеры с комментариями в социальной сети. Каждый кластер - отдельный паттерн.  Тебе нужно соединить всю информацию в максимально информативный отчет, Используй только ту информацию, что есть в тексте без вступления и подкрепляй примерами: ',
+    'comments': ['Отличный сервис!', 'Были некоторые задержки, но в целом хорошо.']
+}
+
 # Функция для компиляции SCSS в CSS
-def compile_scss():
-    with open('/workspaces/portret/PortretAI/templates/styles.scss', 'r') as scss_file:
+def compile_scss(scss_file_path, css_file_path):
+    with open(scss_file_path, 'r') as scss_file:
         scss_content = scss_file.read()
-    return sass.compile(string=scss_content)
+    compiled_css = sass.compile(string=scss_content)
+    with open(css_file_path, 'w') as css_file:
+        css_file.write(compiled_css)
 
 @app.route('/')
-def home():
-    # Компиляция SCSS в CSS и сохранение в статической директории
-    compiled_css = compile_scss()
-    with open('/workspaces/portret/PortretAI/static/styles.css', 'w') as css_file:
-        css_file.write(compiled_css)
-    # Рендеринг HTML с использованием скомпилированного CSS
-    return render_template('index.html')
+def home_page():
+    # Компиляция SCSS для главной страницы
+    compile_scss('/workspaces/portret/PortretAI/templates/home_page.scss',
+                 '/workspaces/portret/PortretAI/static/home_page.css')
+    # Рендеринг HTML для главной страницы
+    return render_template('home_page.html', reports=reports)
+
+@app.route('/report_page')
+def report_page():
+    # Компиляция SCSS для второй страницы
+    compile_scss('/workspaces/portret/PortretAI/templates/report_page.scss',
+                 '/workspaces/portret/PortretAI/static/report_page.css')
+    # Рендеринг HTML для второй страницы
+    return render_template('report_page.html', report=report_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 

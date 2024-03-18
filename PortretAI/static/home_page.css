@@ -1,0 +1,100 @@
+body {
+  background: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0; }
+
+.dashboard {
+  display: flex;
+  min-height: 100vh; }
+  .dashboard .sidebar {
+    background-color: #e9ecef;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; }
+    .dashboard .sidebar .logo-container {
+      margin-bottom: 1rem; }
+      .dashboard .sidebar .logo-container img {
+        display: block;
+        max-width: 100%; }
+    .dashboard .sidebar .add-report, .dashboard .sidebar .logo-container, .dashboard .sidebar .navigation-buttons {
+      margin: 2rem 0; }
+      .dashboard .sidebar .add-report button, .dashboard .sidebar .add-report .nav-button, .dashboard .sidebar .logo-container button, .dashboard .sidebar .logo-container .nav-button, .dashboard .sidebar .navigation-buttons button, .dashboard .sidebar .navigation-buttons .nav-button {
+        background: #0056b3;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%; }
+        .dashboard .sidebar .add-report button:hover, .dashboard .sidebar .add-report .nav-button:hover, .dashboard .sidebar .logo-container button:hover, .dashboard .sidebar .logo-container .nav-button:hover, .dashboard .sidebar .navigation-buttons button:hover, .dashboard .sidebar .navigation-buttons .nav-button:hover {
+          background-color: #003d80; }
+    .dashboard .sidebar .report-list, .dashboard .sidebar .trend-info, .dashboard .sidebar .menu-link {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      border: 1px solid #d1d1d1;
+      border-radius: 8px;
+      background: #ffffff; }
+      .dashboard .sidebar .report-list .report, .dashboard .sidebar .report-list .trend-stats, .dashboard .sidebar .report-list a, .dashboard .sidebar .trend-info .report, .dashboard .sidebar .trend-info .trend-stats, .dashboard .sidebar .trend-info a, .dashboard .sidebar .menu-link .report, .dashboard .sidebar .menu-link .trend-stats, .dashboard .sidebar .menu-link a {
+        transition: background-color 0.3s;
+        padding: 0.5rem;
+        border-radius: 8px; }
+        .dashboard .sidebar .report-list .report:hover, .dashboard .sidebar .report-list .trend-stats:hover, .dashboard .sidebar .report-list a:hover, .dashboard .sidebar .trend-info .report:hover, .dashboard .sidebar .trend-info .trend-stats:hover, .dashboard .sidebar .trend-info a:hover, .dashboard .sidebar .menu-link .report:hover, .dashboard .sidebar .menu-link .trend-stats:hover, .dashboard .sidebar .menu-link a:hover {
+          background: #dde2e6; }
+      .dashboard .sidebar .report-list .delete-report, .dashboard .sidebar .trend-info .delete-report, .dashboard .sidebar .menu-link .delete-report {
+        background: none;
+        border: none;
+        color: #dc3545;
+        cursor: pointer; }
+        .dashboard .sidebar .report-list .delete-report:hover, .dashboard .sidebar .trend-info .delete-report:hover, .dashboard .sidebar .menu-link .delete-report:hover {
+          color: #bd2130; }
+      .dashboard .sidebar .report-list a, .dashboard .sidebar .trend-info a, .dashboard .sidebar .menu-link a {
+        color: #0056b3;
+        text-decoration: none; }
+        .dashboard .sidebar .report-list a:hover, .dashboard .sidebar .trend-info a:hover, .dashboard .sidebar .menu-link a:hover {
+          color: #00254d; }
+  .dashboard .main-content {
+    flex-grow: 1;
+    padding: 1rem;
+    background: #f5f5f5;
+    overflow-y: auto; }
+    .dashboard .main-content h1, .dashboard .main-content h2 {
+      color: #0056b3; }
+    .dashboard .main-content .report-info {
+      border: 1px solid #d1d1d1;
+      border-radius: 5px;
+      width: 100%;
+      background-color: #ffffff;
+      padding: 15px;
+      margin: 1rem 0; }
+      .dashboard .main-content .report-info .report-title {
+        font-weight: bold;
+        margin-bottom: 5px; }
+      .dashboard .main-content .report-info .report-stats {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem; }
+    .dashboard .main-content .report-info {
+      border: 1px solid #d1d1d1;
+      border-radius: 5px;
+      width: 100%;
+      background-color: #ffffff;
+      padding: 15px;
+      margin: 1rem 0; }
+      .dashboard .main-content .report-info .report-title {
+        font-weight: bold;
+        margin-bottom: 5px; }
+      .dashboard .main-content .report-info .report-stats {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem; }
+    .dashboard .main-content .reports, .dashboard .main-content .report-content, .dashboard .main-content .comment-examples {
+      background: #fff;
+      border-radius: 8px;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }

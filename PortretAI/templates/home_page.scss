@@ -1,0 +1,157 @@
+$background-color: #f5f5f5;
+$text-color: #333;
+$primary-color: #0056b3;
+$hover-primary-color: #003d80;
+$secondary-color: #e9ecef;
+$hover-secondary-color: #dde2e6;
+$border-color: #d1d1d1;
+$delete-color: #dc3545;
+$hover-delete-color: #bd2130;
+$trend-info-border-color: #d1d1d1;
+$trend-info-background: #ffffff;
+
+body {
+  background: $background-color;
+  font-family: 'Arial', sans-serif;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+
+  .sidebar {
+    background-color: $secondary-color;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .logo-container {
+        margin-bottom: 1rem;
+        img {
+            display: block;
+            max-width: 100%;
+        }
+    }
+
+    .add-report, .logo-container, .navigation-buttons {
+      margin: 2rem 0;
+
+      button, .nav-button {
+        background: $primary-color;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%;
+
+        &:hover {
+          background-color: $hover-primary-color;
+        }
+      }
+    }
+
+    .report-list, .trend-info, .menu-link {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      background: $trend-info-background;
+
+      .report, .trend-stats, a {
+        transition: background-color 0.3s;
+        padding: 0.5rem;
+        border-radius: 8px;
+
+        &:hover {
+          background: $hover-secondary-color;
+        }
+      }
+
+      .delete-report {
+        background: none;
+        border: none;
+        color: $delete-color;
+        cursor: pointer;
+
+        &:hover {
+          color: $hover-delete-color;
+        }
+      }
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+
+        &:hover {
+          color: darken($primary-color, 20%);
+        }
+      }
+    }
+  }
+
+  .main-content {
+    flex-grow: 1;
+    padding: 1rem;
+    background: $background-color;
+    overflow-y: auto;
+
+    h1, h2 {
+      color: $primary-color;
+    }
+
+    .report-info {
+      border: 1px solid $trend-info-border-color;
+      border-radius: 5px;
+      width: 100%;
+      background-color: $trend-info-background;
+      padding: 15px;
+      margin: 1rem 0;
+
+      .report-title {
+          font-weight: bold;
+          margin-bottom: 5px;
+      }
+
+      .report-stats {
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.9rem;
+      }
+    }
+
+    .report-info {
+      border: 1px solid $trend-info-border-color;
+      border-radius: 5px;
+      width: 100%;
+      background-color: $trend-info-background;
+      padding: 15px;
+      margin: 1rem 0;
+
+      .report-title {
+          font-weight: bold;
+          margin-bottom: 5px;
+      }
+
+      .report-stats {
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.9rem;
+      }
+    }
+
+    .reports, .report-content, .comment-examples {
+      background: #fff;
+      border-radius: 8px;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  }
+}

@@ -10,7 +10,7 @@ from video_summarization.video_summarization_gpt import YoutubeVideoSummaryDescr
 from keys.llm_keys import OPENAI_API_KEY
 from paths.summary_flie_path import summary_file_path
 
-video_ids = ["XsEhEm5l7Jk", "g5zubixGM8A"]  # Список Video ID для обработки
+video_ids = ["Hq5ReA2DQUQ"]  # Список Video ID для обработки
 descriptor = YoutubeVideoSummaryDescriptor(OPENAI_API_KEY)
 
 # Удаление файла с саммаризациями, если он существует, для начала работы с чистого листа

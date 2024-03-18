@@ -1,0 +1,169 @@
+$background-color: #f5f5f5;
+$text-color: #333;
+$primary-color: #0056b3;
+$hover-primary-color: #003d80;
+$secondary-color: #e9ecef;
+$hover-secondary-color: #dde2e6;
+$border-color: #d1d1d1;
+$delete-color: #dc3545;
+$hover-delete-color: #bd2130;
+$trend-info-border-color: #d1d1d1;
+$trend-info-background: #ffffff;
+
+// Вспомогательные функции для управления цветами
+@function darken($color, $amount) {
+  @return mix(black, $color, $amount);
+}
+
+body {
+  background: $background-color;
+  font-family: 'Arial', sans-serif;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  .sidebar {
+    background-color: $secondary-color;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .logo-container {
+        margin-bottom: 1rem;
+        img {
+            display: block;
+            max-width: 100%;
+        }
+    }
+
+    .navigation-buttons {
+        width: 100%;
+        button.nav-button {
+            background-color: $primary-color;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
+        }
+    }
+
+    .trend-info {
+        border: 1px solid $trend-info-border-color;
+        border-radius: 5px;
+        width: 100%;
+        background-color: $trend-info-background;
+        padding: 15px;
+        margin: 1rem 0;
+
+        .trend-title {
+            font-weight: absolute;
+            margin-bottom: 5px;
+        }
+
+        .trend-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+    }
+
+    .menu-link {
+        a {
+            color: $primary-color;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s;
+
+            &:hover {
+                color: darken($primary-color, 20%);
+            }
+        }
+    }
+}
+
+  .main-content {
+    flex-grow: 1;
+    display: outside; // Для выравнивания .content-area и .comment-examples в ряд
+    padding: 1rem;
+    background: $background-color;
+    overflow-y: auto;
+
+    h1 {
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .reports, .report-content {
+      background: #fff;
+      border-radius: 8px;
+      padding: 0.5rem;
+      top: 600px; // Расстояние от верхней части вьюпорта 
+      width: 750px; // Ширина блока комментариев
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .comment-examples {
+      position: sticky; // Заставляет блок комментариев оставаться в поле зрения при прокрутке
+      top: 100px; // Расстояние от верхней части вьюпорта
+      right: 40px; // Прижимаем к правому краю экрана
+      width: 300px; // Ширина блока комментариев
+      max-height: 500px; // Максимальная высота блока комментариев
+      overflow-y: auto; // Прокрутка, если содержимое превышает высоту
+      background: #fff;
+      border-radius: 8px;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      margin-left: auto; // Автоматический отступ слева для выравнивания справа
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 10; // Убедитесь, что блок комментариев накладывается поверх других элементов
+    }
+  }
+
+  .main-content {
+    flex-grow: 1;
+    display: flex; // Добавлено для выравнивания дочерних элементов в ряд
+    padding: 1rem;
+    background: $background-color;
+    overflow-y: auto;
+
+    .comment-examples {
+      width: 300px; // Фиксированная ширина блока комментариев
+      max-height: 500px;
+      overflow-y: auto;
+      background: #fff;
+      border-radius: 8px;
+      padding: 0.5rem;
+      margin-left: 1rem; // Отступ от .content-area
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      align-self: flex-start; // Выравнивание по верхней части контейнера
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard .main-content {
+    flex-direction: column;
+
+    .comment-examples {
+      // Стили для мобильных устройств, если необходимо
+      width: 100%;
+      margin-left: 0;
+      order: -1; // Поместить блок комментариев наверх
+    }
+  }
+}
+
