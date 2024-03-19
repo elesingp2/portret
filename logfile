@@ -61,3 +61,74 @@
 2024-03-18 19:07:46.423 UTC [82988] LOG:  checkpoint starting: end-of-recovery immediate wait
 2024-03-18 19:07:46.543 UTC [82988] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.031 s, sync=0.015 s, total=0.138 s; sync files=2, longest=0.008 s, average=0.008 s; distance=0 kB, estimate=0 kB; lsn=0/18D71F0, redo lsn=0/18D71F0
 2024-03-18 19:07:46.564 UTC [82976] LOG:  database system is ready to accept connections
+2024-03-18 19:12:46.644 UTC [82988] LOG:  checkpoint starting: time
+2024-03-18 19:12:48.744 UTC [82988] LOG:  checkpoint complete: wrote 20 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.919 s, sync=0.091 s, total=2.100 s; sync files=18, longest=0.022 s, average=0.006 s; distance=12 kB, estimate=12 kB; lsn=0/18DA308, redo lsn=0/18DA2D0
+2024-03-18 19:58:38.213 UTC [3869] LOG:  starting PostgreSQL 16.2 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 12.3.0-5) 12.3.0, 64-bit
+2024-03-18 19:58:38.217 UTC [3869] LOG:  listening on IPv6 address "::1", port 5432
+2024-03-18 19:58:38.217 UTC [3869] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-03-18 19:58:38.234 UTC [3869] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-03-18 19:58:38.276 UTC [3872] LOG:  database system was interrupted; last known up at 2024-03-18 19:12:48 UTC
+2024-03-18 19:58:43.376 UTC [3872] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-03-18 19:58:43.397 UTC [3872] LOG:  redo starts at 0/18DA2D0
+2024-03-18 19:58:43.397 UTC [3872] LOG:  invalid record length at 0/18DA3B8: expected at least 24, got 0
+2024-03-18 19:58:43.397 UTC [3872] LOG:  redo done at 0/18DA380 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2024-03-18 19:58:43.441 UTC [3870] LOG:  checkpoint starting: end-of-recovery immediate wait
+2024-03-18 19:58:43.564 UTC [3870] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.031 s, sync=0.015 s, total=0.149 s; sync files=2, longest=0.008 s, average=0.008 s; distance=0 kB, estimate=0 kB; lsn=0/18DA3B8, redo lsn=0/18DA3B8
+2024-03-18 19:58:43.585 UTC [3869] LOG:  database system is ready to accept connections
+2024-03-18 20:03:43.657 UTC [3870] LOG:  checkpoint starting: time
+2024-03-18 20:03:45.371 UTC [3870] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.522 s, sync=0.084 s, total=1.714 s; sync files=16, longest=0.020 s, average=0.006 s; distance=7 kB, estimate=7 kB; lsn=0/18DC048, redo lsn=0/18DBFF8
+2024-03-19 18:03:29.478 UTC [22609] LOG:  starting PostgreSQL 16.2 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 12.3.0-5) 12.3.0, 64-bit
+2024-03-19 18:03:29.482 UTC [22609] LOG:  listening on IPv6 address "::1", port 5432
+2024-03-19 18:03:29.482 UTC [22609] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-03-19 18:03:29.500 UTC [22609] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-03-19 18:03:29.552 UTC [22612] LOG:  database system was interrupted; last known up at 2024-03-18 20:03:45 UTC
+2024-03-19 18:03:34.645 UTC [22612] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-03-19 18:03:34.663 UTC [22612] LOG:  redo starts at 0/18DBFF8
+2024-03-19 18:03:34.663 UTC [22612] LOG:  invalid record length at 0/18DC0F8: expected at least 24, got 0
+2024-03-19 18:03:34.663 UTC [22612] LOG:  redo done at 0/18DC0C0 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2024-03-19 18:03:34.699 UTC [22610] LOG:  checkpoint starting: end-of-recovery immediate wait
+2024-03-19 18:03:34.818 UTC [22610] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.029 s, sync=0.015 s, total=0.134 s; sync files=2, longest=0.008 s, average=0.008 s; distance=0 kB, estimate=0 kB; lsn=0/18DC0F8, redo lsn=0/18DC0F8
+2024-03-19 18:03:34.837 UTC [22609] LOG:  database system is ready to accept connections
+2024-03-19 18:08:34.919 UTC [22610] LOG:  checkpoint starting: time
+2024-03-19 18:08:36.607 UTC [22610] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.519 s, sync=0.081 s, total=1.689 s; sync files=16, longest=0.020 s, average=0.006 s; distance=8 kB, estimate=8 kB; lsn=0/18DE458, redo lsn=0/18DE420
+2024-03-19 18:18:34.761 UTC [22610] LOG:  checkpoint starting: time
+2024-03-19 18:18:35.506 UTC [22610] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.616 s, sync=0.045 s, total=0.745 s; sync files=7, longest=0.020 s, average=0.007 s; distance=4 kB, estimate=8 kB; lsn=0/18DF5F8, redo lsn=0/18DF5C0
+2024-03-19 18:28:34.697 UTC [22610] LOG:  checkpoint starting: time
+2024-03-19 18:28:36.383 UTC [22610] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.518 s, sync=0.081 s, total=1.687 s; sync files=16, longest=0.023 s, average=0.006 s; distance=8 kB, estimate=8 kB; lsn=0/18E1990, redo lsn=0/18E1958
+2024-03-19 18:38:34.569 UTC [22610] LOG:  checkpoint starting: time
+2024-03-19 18:38:36.253 UTC [22610] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.519 s, sync=0.080 s, total=1.684 s; sync files=16, longest=0.022 s, average=0.005 s; distance=9 kB, estimate=9 kB; lsn=0/18E4118, redo lsn=0/18E40E0
+2024-03-19 18:48:34.430 UTC [22610] LOG:  checkpoint starting: time
+2024-03-19 18:48:36.120 UTC [22610] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.518 s, sync=0.084 s, total=1.691 s; sync files=16, longest=0.022 s, average=0.006 s; distance=11 kB, estimate=11 kB; lsn=0/18E6EB0, redo lsn=0/18E6E78
+2024-03-19 18:58:34.319 UTC [22610] LOG:  checkpoint starting: time
+2024-03-19 18:58:34.585 UTC [22610] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.120 s, sync=0.025 s, total=0.266 s; sync files=2, longest=0.018 s, average=0.013 s; distance=4 kB, estimate=10 kB; lsn=0/18E7F38, redo lsn=0/18E7F00
+2024-03-19 19:00:35.150 UTC [45085] ERROR:  syntax error at or near "=" at character 32
+2024-03-19 19:00:35.150 UTC [45085] STATEMENT:  SELECT * FROM "users" username = 'johndoe'
+2024-03-19 19:02:01.451 UTC [45659] ERROR:  syntax error at or near "=" at character 32
+2024-03-19 19:02:01.451 UTC [45659] STATEMENT:  SELECT * FROM "users" username = 'johndoe'
+2024-03-19 19:02:42.913 UTC [46075] ERROR:  syntax error at or near "=" at character 32
+2024-03-19 19:02:42.913 UTC [46075] STATEMENT:  SELECT * FROM "users" username = 'johndoe'
+2024-03-19 19:03:34.683 UTC [22610] LOG:  checkpoint starting: time
+2024-03-19 19:03:36.364 UTC [22610] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.519 s, sync=0.078 s, total=1.681 s; sync files=16, longest=0.018 s, average=0.005 s; distance=15 kB, estimate=15 kB; lsn=0/18EBD70, redo lsn=0/18EBD38
+2024-03-19 19:05:10.400 UTC [47034] ERROR:  syntax error at or near "=" at character 32
+2024-03-19 19:05:10.400 UTC [47034] STATEMENT:  SELECT * FROM "users" username = 'johndoe'
+2024-03-19 19:05:12.032 UTC [47064] ERROR:  syntax error at or near "=" at character 32
+2024-03-19 19:05:12.032 UTC [47064] STATEMENT:  SELECT * FROM "users" username = 'johndoe'
+2024-03-19 19:05:56.333 UTC [47401] ERROR:  syntax error at or near "WHERE" at character 53
+2024-03-19 19:05:56.333 UTC [47401] STATEMENT:  UPDATE "users" SET "username" = 'newusername' WHERE WHERE username = 'johndoe'
+2024-03-19 19:06:24.857 UTC [47619] ERROR:  column "report_id" does not exist at character 84
+2024-03-19 19:06:24.857 UTC [47619] HINT:  Perhaps you meant to reference the column "reports.reports_id".
+2024-03-19 19:06:24.857 UTC [47619] STATEMENT:  UPDATE "reports" SET "report_text" = '{"content": "Updated report content"}' WHERE report_id = 1
+2024-03-19 19:08:34.464 UTC [22610] LOG:  checkpoint starting: time
+2024-03-19 19:08:34.792 UTC [22610] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.215 s, sync=0.028 s, total=0.329 s; sync files=3, longest=0.017 s, average=0.010 s; distance=3 kB, estimate=14 kB; lsn=0/18ECA20, redo lsn=0/18EC9E8
+2024-03-19 19:09:42.420 UTC [48955] ERROR:  column "report_id" does not exist at character 84
+2024-03-19 19:09:42.420 UTC [48955] HINT:  Perhaps you meant to reference the column "reports.reports_id".
+2024-03-19 19:09:42.420 UTC [48955] STATEMENT:  UPDATE "reports" SET "report_text" = '{"content": "Updated report content"}' WHERE report_id = 1
+2024-03-19 19:11:07.945 UTC [49563] ERROR:  column "report_id" does not exist at character 84
+2024-03-19 19:11:07.945 UTC [49563] HINT:  Perhaps you meant to reference the column "reports.reports_id".
+2024-03-19 19:11:07.945 UTC [49563] STATEMENT:  UPDATE "reports" SET "report_text" = '{"content": "Updated report content"}' WHERE report_id = 1
+2024-03-19 19:13:34.889 UTC [22610] LOG:  checkpoint starting: time
+2024-03-19 19:13:35.230 UTC [22610] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.218 s, sync=0.028 s, total=0.342 s; sync files=3, longest=0.017 s, average=0.010 s; distance=6 kB, estimate=13 kB; lsn=0/18EE3B8, redo lsn=0/18EE380
+2024-03-19 19:18:34.315 UTC [22610] LOG:  checkpoint starting: time
+2024-03-19 19:18:34.649 UTC [22610] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.216 s, sync=0.028 s, total=0.334 s; sync files=3, longest=0.017 s, average=0.010 s; distance=6 kB, estimate=12 kB; lsn=0/18EFDA0, redo lsn=0/18EFD68
+2024-03-19 19:28:34.845 UTC [22610] LOG:  checkpoint starting: time
+2024-03-19 19:28:35.164 UTC [22610] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.216 s, sync=0.029 s, total=0.320 s; sync files=3, longest=0.018 s, average=0.010 s; distance=6 kB, estimate=12 kB; lsn=0/18F1890, redo lsn=0/18F1858

@@ -1,1 +1,1 @@
-summary_file_path = '/workspaces/portret/PortretAI/static/summary.txt'
+summary_file_path = '/workspaces/portret/PortretAI/files/summary.txt'

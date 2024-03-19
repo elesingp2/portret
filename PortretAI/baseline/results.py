@@ -4,12 +4,12 @@ import pandas as pd
 from preprocess.preprocess_v1 import preprocess_clusterization
 
 # Векторизация
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.preprocessing import normalize
+from embeddings.navec.embeddings_navec import w2v_vectorizer
+from embeddings.openai.embeddings_openai import open_AI_embeddings
 
 # Кластеризация
 from sklearn.cluster import KMeans
-from embeddings.embeddings_openai import open_AI_embeddings
+
 # Метрики
 from metrics.silhouette_score import evaluate_clustering
 
@@ -24,7 +24,7 @@ from paths.compare_clusters_file_path import compare_clusters_path
 # Саммаризация кластеризированного текста
 from cluster_summarization.summarization_yandex import summarize_clusters_yandex_gpt
 from cluster_summarization.summarization_gpt import summarize_clusters_gpt
-from cluster_summarization.compare_comments import compare_comments
+from create_examples.create_examples_gpt import compare_comments
 
 # Генерация репорта
 from report_generation.report_generation_gpt import generate_overall_report
@@ -34,21 +34,32 @@ class TextClusterAnalysis:
         self.comments_path = comments_path
         self.comments = pd.read_csv(comments_path)
         self.vectorizer = open_AI_embeddings()
-        self.k = 5  # Предполагаемое количество кластеров
+        self.k = 2 # Предполагаемое количество кластеров
 
     def preprocess_comments(self):
         self.preprocess=preprocess_clusterization()
         return [self.preprocess.preprocess_text_morph(comment) for comment in self.comments['text']]
 
     def vectorize_text(self, preprocessed_comments):
-        #X = self.vectorizer.transform(preprocessed_comments)
-        return [self.vectorizer.transform(comment) for comment in preprocessed_comments]
+        #for comment in preprocessed_comments:
+            #preprocessed_comments.append(filter(lambda x: x is not None, comment))
+        #X = self.vectorizer.transform(preprocessed_comments.dropna())
+        X = [self.vectorizer.transform(comment) for comment in preprocessed_comments]
+        return X
 
     def cluster_comments(self, X_normalized):
         model = KMeans(n_clusters=self.k, random_state=42)
         #print(X_normalized)
         model.fit(X_normalized)
         return model.labels_
+    
+    def create_examples(self, clusters, cluster_summaries):
+        clear_file(compare_clusters_path)
+        for label in clusters:
+            for cluster_id in cluster_summaries:
+                if (cluster_id == label):
+                    print(clusters[label], cluster_summaries[cluster_id])
+                    compare_comments(label, cluster_summaries[cluster_id], clusters[label], compare_clusters_path)
 
     def analyze_clusters(self, labels, comments):
         clusters = defaultdict(list)
@@ -84,13 +95,9 @@ class TextClusterAnalysis:
         cluster_summaries = self.summarize_clusters(clusters)
 
         ### 10 наиболее подходящих под кластер комментариев ###
-        clear_file(compare_clusters_path)
-        for label in clusters:
-            for cluster_id in cluster_summaries:
-                if (cluster_id == label):
-                    print(clusters[label], cluster_summaries[cluster_id])
-                    compare_comments(label, cluster_summaries[cluster_id], clusters[label], compare_clusters_path)
+        self.create_examples(clusters, cluster_summaries)
 
+        #Генерация финального отчета
         report = self.generate_report(cluster_summaries)
         
         # Модифицирован для возврата результатов вместо печати

@@ -7,7 +7,9 @@ def summarize_clusters_gpt(clusters):
     summaries = {}
     for cluster_id, comments in clusters.items():
         # Агрегируем комментарии кластера в один текст
-        cluster_text = " ".join(comments[:100])  # Ограничиваем количество комментариев для суммаризации
+        cluster_text = " ".join(comments[:200])  # Ограничиваем количество комментариев для суммаризации
+
+
 
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -21,8 +23,8 @@ def summarize_clusters_gpt(clusters):
                     "content": cluster_text
                 }
             ],
-            temperature=0.5,
-            max_tokens=600,
+            temperature=0,
+            max_tokens=800,
             top_p=1
         )
         
