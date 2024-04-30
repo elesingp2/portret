@@ -8,7 +8,7 @@ from embeddings.navec.embeddings_navec import w2v_vectorizer
 from embeddings.openai.embeddings_openai import open_AI_embeddings
 
 # Кластеризация
-from sklearn.cluster import KMeans
+from clustering import ApClustering
 
 # Метрики
 from metrics.silhouette_score import evaluate_clustering
@@ -48,10 +48,9 @@ class TextClusterAnalysis:
         return X
 
     def cluster_comments(self, X_normalized):
-        model = KMeans(n_clusters=self.k, random_state=42)
+        model = ApClustering()
         #print(X_normalized)
-        model.fit(X_normalized)
-        return model.labels_
+        return model.fit(X_normalized)
     
     def create_examples(self, clusters, cluster_summaries):
         clear_file(compare_clusters_path)
