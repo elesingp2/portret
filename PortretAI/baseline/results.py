@@ -8,7 +8,7 @@ from embeddings.navec.embeddings_navec import w2v_vectorizer
 from embeddings.openai.embeddings_openai import open_AI_embeddings
 
 # Кластеризация
-from clustering import ApClustering
+from clustering.apclustering import ApClustering
 
 # Метрики
 from metrics.silhouette_score import evaluate_clustering
